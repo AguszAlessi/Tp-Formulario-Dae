@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel = "stylesheet" href = "styles.css">
+</head>
+<body>
+    <script src = "form.js"></script>
+    <div class = "titulo"> <p> REGISTRARSE</p></div>
+   
+    <div class = "form">
+        
+        <input type = "text" placeholder="Ingrese su nombre completo" id="nombre" onchange="Nombre()">
+        <span id="errornombre"> </span>
+        <input type = "email" placeholder="Ingrese su email" id = "email" onchange="Email()">
+        <input type = "password" placeholder="Ingrese su contraseña" id ="password" onchange="Password()">
+        <input type = "password" placeholder="Confirmarcontra" onchange = "Password()">
+        <button> ENVIAR</button>
+    </div>
+</body>
+</html>
