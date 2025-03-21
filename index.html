@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link rel = "stylesheet" href = "styles.css">
+    <script src = "form.js"></script>
 </head>
 <body>
-    <script src = "form.js"></script>
     <div class = "titulo"> <p> REGISTRARSE</p></div>
    
     <div class = "form">
+        <input type = "text" placeholder="Ingrese su nombre completo" id="nombre" oninput="Nombre()">
+        <p id="errornombre"> </p>
+        <input type = "email" placeholder="Ingrese su email" id = "email" oninput="Email()">
+        <p id="erroremail"> </p>
+        <input type = "password" placeholder="Ingrese su contraseña" id ="password" oninput="Password()">
+        <p id="errorpass"> </p>
+        <input type = "password" placeholder="Confirmarcontra" id ="confirm" oninput= "Password()">
+        <p id="errorconfirm"> </p>
+
         
-        <input type = "text" placeholder="Ingrese su nombre completo" id="nombre" onchange="Nombre()">
-        <span id="errornombre"> </span>
-        <input type = "email" placeholder="Ingrese su email" id = "email" onchange="Email()">
-        <input type = "password" placeholder="Ingrese su contraseña" id ="password" onchange="Password()">
-        <input type = "password" placeholder="Confirmarcontra" onchange = "Password()">
-        <button> ENVIAR</button>
+      <button onclick="validarFormulario(event)"> ENVIAR</button>
     </div>
 </body>
+
+
 </html>

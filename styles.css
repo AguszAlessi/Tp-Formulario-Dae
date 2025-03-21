@@ -5,8 +5,6 @@
     align-items: center;
     flex-direction: column;
     gap:10px;
-
-    
 }
 .titulo 
 {
@@ -32,4 +30,13 @@ button
     border-radius: 10px;
     font-weight: bold;
     color: aliceblue;
+}
+button:hover
+{
+    background-color: rgb(0, 94, 235);
+
+}
+input:focus
+{
+    border: 5px solid black;
 }
