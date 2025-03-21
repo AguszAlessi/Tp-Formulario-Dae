@@ -48,6 +48,12 @@ function Password() {
         errorpass.innerText = "La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número.";
         errorpass.style.color = "red";
     }
+    else
+    {
+        errorpass.innerText = "Correcto";
+        errorpass.style.color = "green";
+        return;
+    }
 
     if (password !== confirmPassword) {
 
@@ -56,8 +62,7 @@ function Password() {
     }
     else
     {
-        errorpass.innerText = "Correcto";
-        errorpass.style.color = "green";
+ 
         errorconfirm.innerText="Correcto";
         errorconfirm.style.color = "green";
         return; 
