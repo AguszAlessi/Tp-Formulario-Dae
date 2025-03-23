@@ -10,12 +10,29 @@ function Nombre()
     {
         errornombre.innerText = "obligatorio, mínimo 3 caracteres";
         errornombre.style.color = "red";
+        return false
     }
     else 
     {
         errornombre.innerText = "Correcto";
         errornombre.style.color = "green";
-        return;
+        return true;
+    }
+}
+
+function ModoOscuro()
+{
+    document.body.classList.toggle("oscuro")
+    const button = document.getElementById("modooscuro")
+    if(document.body.classList.contains("oscuro"))
+    {
+        button.innerText = '☀️ Modo claro';
+
+    }
+    else
+    {
+        button.innerText = '🌙 Modo oscuro';
+
     }
 }
 
@@ -27,58 +44,77 @@ function Email() {
     {
         erroremail.innerText = "Ingrese un mail válido";
         erroremail.style.color = "red";
+        return false;
+
     }
     else 
     {
         erroremail.innerText = "Correcto";
         erroremail.style.color = "green";
-
-        return;
+        return true;
     }
 }
 
 function Password() {
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirm").value;
+    let valido = true;
+
 
     const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if (password && !regexPassword.test(password)) 
     {
-        errorpass.innerText = "La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número.";
+        errorpass.innerText = " debe tener al menos 8 caracteres y 1 numero";
         errorpass.style.color = "red";
+         valido = false;
+
     }
     else
     {
         errorpass.innerText = "Correcto";
         errorpass.style.color = "green";
-        return;
+        
     }
-
-    if (password !== confirmPassword) {
-
-        errorconfirm.innerText = "Las contraseñas no coinciden";
-        errorconfirm.style.color = "red";  
-    }
-    else
+    if (password && confirmPassword)
     {
- 
-        errorconfirm.innerText="Correcto";
-        errorconfirm.style.color = "green";
-        return; 
+        if (password !== confirmPassword) {
+
+            errorconfirm.innerText = "Las contraseñas no coinciden";
+            errorconfirm.style.color = "red";
+             valido = false;
+
+        }
+        else
+        {
+            errorconfirm.innerText="Correcto";
+            errorconfirm.style.color = "green";
+        }
+    }
+    
+    return valido;  
+}
+
+function validarFormulario(event) {
+    event.preventDefault();  
+
+    const nombreValido = Nombre();
+    const emailValido = Email();
+    const passwordValido = Password();
+
+    if (nombreValido && emailValido && passwordValido) {
+        alert("Formulario enviado exitosamente.");
+    } else {
+        alert("Complete todos los campos correctamente.");
     }
 }
 
-function validarFormulario(event) 
-{
-    event.preventDefault();  
-    
-    Nombre();
-    Email();
-    const passwordValid = Password();
-
-    if (document.querySelectorAll(".error").length === 0 && passwordValid) {
-        alert("Formulario enviado exitosamente.");
-        return;
+function MostrarContra(inputId, boton) {
+    const input = document.getElementById(inputId);
+    if (input.type === "password") {
+        input.type = "text";
+    } else {
+        input.type = "password";
+        boton.innerText = "👁️";
     }
 }

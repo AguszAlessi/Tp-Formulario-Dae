@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class = "titulo"> <p> REGISTRARSE</p></div>
+    <button id = "modooscuro" onclick="ModoOscuro()">🌙 Modo oscuro </button>
    
     <div class = "form">
         <input type = "text" placeholder="Ingrese su nombre completo" id="nombre" oninput="Nombre()">
@@ -19,10 +20,11 @@
         <p id="errorpass"> </p>
         <input type = "password" placeholder="Confirmarcontra" id ="confirm" oninput= "Password()">
         <p id="errorconfirm"> </p>
-
-        
+     
       <button onclick="validarFormulario(event)"> ENVIAR</button>
     </div>
+    <button type="button" class = "mostrar-contra" onclick="MostrarContra('password')">👁️</button>
+
 </body>
 
 
